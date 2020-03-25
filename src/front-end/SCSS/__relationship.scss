@@ -1,0 +1,69 @@
+@import './variables';
+@import './_config';
+
+section#Relationship {
+    width: 100%;
+    height: 724px;
+    background-color: map-get($map: $main-color, $key:backgroundColor);
+
+    .container__relation__ship {
+        margin: 161px 30px 0 30px;
+
+        h1 {
+            margin-bottom: 70px;
+            text-align: center;
+            @include header1;
+            color: black;
+        }
+
+        .Acquainted__container__flex {
+            width: 100%;
+            height: 285px;
+            display: grid;
+            grid-template-columns: 550px 550px;
+            gap: 0 31px;
+
+
+            .relationship__requirement__containers {
+                width: 550px;
+
+                h2 {
+                    margin-bottom: 31px;
+                    font-size: map-get($map: $header2, $key:fontSize);
+                    font-weight: map-get($map: $header2, $key:fontWeight);
+                }
+
+                .requirements__contents {
+                    p {
+                        margin-bottom: 36px;
+                        @include paragraph;
+                        color: black;
+                    }
+                }
+
+                button.btn__Without__background__color {
+                    @include button;
+                    background-color: map-get($map: $main-color, $key: backgroundColor);
+                    margin: 0;
+                    width: auto;
+                    line-height: 0;
+
+                    a {
+                        color: map-get($map: $main-color, $key:Primary);
+                        font-weight: 800;
+                        transition: all 250ms ease-in;
+                    }
+
+                    &:hover{
+                        background-color: map-get($map: $main-color, $key: backgroundColor);
+
+                        a{
+                            color: #c73525;
+                            transition: all 250ms ease-out;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
