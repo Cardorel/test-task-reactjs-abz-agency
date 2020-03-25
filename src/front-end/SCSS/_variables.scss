@@ -1,0 +1,43 @@
+$desktop: 1024px;
+$tablet: 768px;
+$mobil: 360px;
+$isDesktop: true;
+
+$desktop-h1 : (
+    'fontWeight': 400,
+    'fontSize': 50px,
+    'lineHeight': 54px 
+);
+
+$tablet-h1: (
+    'fontWeight': 400,
+    'fontSize': 40px,
+    'lineHeight': 44px 
+);
+
+$mobile-h1: (
+    'fontWeight': 400,
+    'fontSize': 30px,
+    'lineHeight': 34px 
+);
+
+
+$header2: (
+    'fontWeight' : 400,
+    'fontSize' : 24px,
+    'lineHeight': 29px
+);
+
+$paragraph: (
+    'fontWeight' : 400,
+    'fontSize' : 16px,
+    'lineHeight': 24px
+);
+
+$main-color : (
+    'Primary' : #ef5b4c,
+    'Secondary': #007bff,
+    'backgroundColor': #fff,
+    'backgroundColor2': #f9f9f3,
+)
+
