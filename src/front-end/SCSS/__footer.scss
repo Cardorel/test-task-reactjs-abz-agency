@@ -1,0 +1,18 @@
+@import './variables';
+@import './config';
+
+
+.footer__container{
+    background-color: map-get($map: $main-color, $key: backgroundColor);
+    
+    hr{
+        background-color: #aaa;
+    }
+
+    p{
+        @include paragraph;
+        color: black;
+        text-align: center;
+        margin: 12px 0;
+    }
+}
