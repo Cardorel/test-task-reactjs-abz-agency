@@ -1,0 +1,157 @@
+@import './config';
+@import './variables';
+
+section#Signup {
+    width: 100%;
+    height: 1070px;
+    background-color: map-get($map: $main-color, $key: backgroundColor);
+
+    .signup__container {
+        .signup__header__ {
+            margin: 161px 0 16px 0;
+            text-align: center;
+
+            h1 {
+                @include header1;
+                color: black;
+            }
+
+            p {
+                @include paragraph;
+                color: black;
+                width: 447px;
+                margin: 34px auto 0 auto;
+            }
+        }
+
+        .signup__all__input__container {
+            width: 447px;
+            margin: auto;
+
+            p {
+                @include paragraph;
+                margin: 22px 0 6px 0;
+                color: black;
+            }
+
+            .signup__fill__input {
+                input {
+                    width: 100%;
+                    @include input;
+                }
+            }
+
+            span {
+                font-size: 12px;
+                margin-top: 3px;
+            }
+
+            .sign__up__select__position {
+                p{
+                    @include paragraph;
+                    color: black;
+                    margin-bottom: 20px;
+                }
+
+                .content__position {
+                    position: relative;
+                    padding-left: 25px;
+                    margin-bottom: 13px;
+                    display: block;
+                    cursor: pointer;
+                    font-size: 16px;
+                    user-select: none;
+
+                    p {
+                        @include paragraph;
+                        color: black;
+                    }
+
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+
+                    .check__position__span {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 17px;
+                        height: 17px;
+                        background-color: #aaa;
+                        border-radius: 50%;
+                    }
+
+                    //now let do le circle inside the span and we want to hidden them if one of them is not checked;
+                    .check__position__span::after {
+                        content: "";
+                        position: absolute;
+                        width: 7px;
+                        height: 7px;
+                        top: 5px;
+                        left: 5px;
+                        border-radius: 50%;
+                        display: none;
+                        background-color: map-get($map: $main-color, $key: backgroundColor);
+                    }
+
+                    //now we want to check if our input radio is checked, let's change the background color
+                    input:checked~.check__position__span {
+                        background-color: #2196F3;
+                    }
+
+                    //let's now show our circle if it's checked 
+                    input:checked~.check__position__span::after {
+                        display: block;
+                    }
+                }
+            }
+
+            .signup__upload__photo{
+                p{
+                    @include paragraph;
+                    color: black;
+                }
+
+                input[type = "file"]{
+                    display: none;
+                }
+
+                .container__upload__photo{
+                    width: 447px;
+                    display: flex;
+                    input[type = "text"]{
+                        flex: 80%;
+                        @include input;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                        outline: none;
+                    }
+
+                    button.click__get__photo__file{
+                        flex: 20%;
+                        @include input;
+                        border-left: none;
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                        cursor: pointer;
+                        color: black;
+                        font-weight: 550;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .__send__all__registration_request{
+            display: flex;
+            justify-content: center;
+            button.Btn__apply__for__job{
+                @include button;
+                font-weight: map-get($map: $desktop-h1, $key: fontWeight);
+                color: map-get($map: $main-color, $key: backgroundColor);
+            }
+        }
+    }
+}

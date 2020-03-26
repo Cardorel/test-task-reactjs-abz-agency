@@ -73,3 +73,10 @@
         transition: background 250ms ease-out;
     }
 }
+
+@mixin input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+}

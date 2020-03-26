@@ -47,7 +47,7 @@ section#Users {
             }
 
             .__user__bloc__all__content {
-                width: 220px;
+                width: 200px;
                 margin: auto;
                 img {
                     width: 72px;
@@ -56,16 +56,18 @@ section#Users {
                 }
 
                 h2{
-                    margin: 21px 0;
+                    margin: 20px 0 21px 0;
                     @include header2;
                 }
-
-                .__user_position{
+               
+                p.__user_position{
+                    line-height: 0;
                     margin: 0 16px;
                 }
 
-                .__user_email__address{
-                    width: 220px;
+                p.__user_email__address{
+                    width: 200px;
+                    margin: 12px 0;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     &:hover{
