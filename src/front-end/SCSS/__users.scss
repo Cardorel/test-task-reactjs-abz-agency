@@ -9,9 +9,11 @@ section#Users {
     .btn__sign__up__users{
         display: flex;
         justify-content: center;
-        margin-bottom: 45px;
         button.__btn__sign__up{
+            margin-bottom: 160px;
             @include button;
+            font-weight: map-get($map: $desktop-h1, $key: fontWeight);
+            color: map-get($map: $main-color, $key: backgroundColor);
         }
     }
 

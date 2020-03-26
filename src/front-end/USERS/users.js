@@ -45,7 +45,7 @@ const Users = () => {
                     </div>
                     <div className="btn__sign__up__users">
                         <button className="__btn__sign__up">
-                            <a href="#Signup">Sign up now</a>
+                            Show more
                         </button>
                     </div>
                 </div>
