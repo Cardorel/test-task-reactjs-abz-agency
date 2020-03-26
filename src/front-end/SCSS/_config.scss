@@ -45,6 +45,12 @@
     color: map-get($map: $main-color, $key: backgroundColor);
 }
 
+@mixin  header2 {
+    font-size: map-get($map: $header2, $key:fontSize);
+    font-weight: map-get($map: $header2, $key:fontWeight);
+    line-height: map-get($map: $header2, $key: lineHeight );
+}
+
 @mixin button {
     margin-top: 39px;
     width: 209px;
