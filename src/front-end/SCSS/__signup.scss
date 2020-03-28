@@ -6,14 +6,28 @@ section#Signup {
     height: 1070px;
     background-color: map-get($map: $main-color, $key: backgroundColor);
 
+    @include mobil{
+        width: 100%;
+        height: 900px;
+    }
+
     .signup__container {
         .signup__header__ {
             margin: 161px 0 16px 0;
             text-align: center;
+            
+            @include mobil{
+                margin: 80px 0 16px 0;
+            }
 
             h1 {
                 @include header1;
                 color: black;
+
+                @include mobil{
+                    @include header1Mobil;
+                    text-align: center;
+                }
             }
 
             p {
@@ -21,12 +35,22 @@ section#Signup {
                 color: black;
                 width: 447px;
                 margin: 34px auto 0 auto;
+
+                @include mobil{
+                    margin: 15px auto 0 auto;
+                    width: 300px;
+                }
             }
         }
 
         .signup__all__input__container {
             width: 447px;
             margin: auto;
+
+            @include mobil{
+                width: 100%;
+                margin: 0 16px;
+            }
 
             p {
                 @include paragraph;
@@ -38,6 +62,10 @@ section#Signup {
                 input {
                     width: 100%;
                     @include input;
+
+                    @include mobil{
+                        width: 335px;
+                    }
                 }
             }
 
@@ -109,6 +137,9 @@ section#Signup {
             }
 
             .signup__upload__photo{
+                @include mobil{
+                    width: 330px;
+                }
                 p{
                     @include paragraph;
                     color: black;
@@ -121,9 +152,13 @@ section#Signup {
                 .container__upload__photo{
                     width: 447px;
                     display: flex;
+                    @include mobil{
+                        width: 100%;
+                    }
                     input[type = "text"]{
                         flex: 80%;
                         @include input;
+                        border-left: none;
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
                         outline: none;
@@ -132,13 +167,11 @@ section#Signup {
                     button.click__get__photo__file{
                         flex: 20%;
                         @include input;
-                        border-left: none;
                         border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
                         cursor: pointer;
                         color: black;
                         font-weight: 550;
-                        font-size: 15px;
                     }
                 }
             }
