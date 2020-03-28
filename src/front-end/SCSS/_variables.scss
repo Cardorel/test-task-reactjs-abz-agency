@@ -1,7 +1,8 @@
 $desktop: 1024px;
 $tablet: 768px;
 $mobil: 360px;
-$isDesktop: true;
+$isTrue: true;
+
 
 $desktop-h1 : (
     'fontWeight': 400,
@@ -15,7 +16,7 @@ $tablet-h1: (
     'lineHeight': 44px 
 );
 
-$mobile-h1: (
+$mobil-h1: (
     'fontWeight': 400,
     'fontSize': 30px,
     'lineHeight': 34px 

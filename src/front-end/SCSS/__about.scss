@@ -3,37 +3,90 @@
 
 
 
-section#About{
+section#About {
     width: 100%;
     height: 600px;
     background-image: url('../../Image/banner-photo.jpg');
     background-size: cover;
     z-index: -1;
-    .container__about__me{
+
+    @include mobil{
+        &{
+            width: 100%;
+            height: 400px;
+           background-size: cover;
+        }
+    }
+
+
+    .container__about__me {
         width: 550px;
         z-index: 1;
         padding-top: 116px;
         margin-left: 31px;
-        
-        h1{ 
+
+        @include mobil{
+            &{
+                width: 100%;
+                margin: 0 5px;
+                padding-top: 90px
+            }
+        }
+
+
+        h1 {
             @include header1;
             margin-bottom: 24px;
             width: 548px;
             text-transform: uppercase;
-            &::first-letter{
+
+            &::first-letter {
                 margin-left: 3px;
+            }
+
+            @include tablet {
+                width: 440px;
+                @include header1Tablet;
+                line-height: map-get($map: $tablet-h1, $key:lineHeight);
+                &::first-letter {
+                    margin-left: 4px;
+                }
+            }
+
+            @include mobil{
+                width: 340px;
+                @include header1Mobil;
+                line-height: map-get($map: $mobil-h1, $key:lineHeight);
+                text-align: center;
+                margin: auto;
+                &::first-letter {
+                    margin-left: 13px;
+                }
             }
         }
 
-        p{
-           @include paragraph;
-           width: 547px;
+
+
+        p {
+            @include paragraph;
+            width: 547px;
+            @include mobil{
+                width: 100%;
+                text-align: center;
+                span{
+                    display: none;
+                }
+            }
         }
 
-        button{
+        .btn__signup__in__section__aboutMe{
+            @include mobil{
+                display: flex;
+                justify-content: center;
+            }
+        button {
             @include button;
         }
     }
+    }
 }
-
-

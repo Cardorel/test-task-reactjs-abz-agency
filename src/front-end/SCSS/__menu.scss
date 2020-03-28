@@ -3,41 +3,133 @@
 
 
 header.container-header {
-    
-    .hide__section__if__desktop{
+
+    .hide__section__if__desktop {
         @include Desktop(none);
+
+        /*  
+                                                        MENU FOR THE TABLET
+                                                       ___          ___       
+                                                        *            *
+
+                                                              _||_
+
+                                                           |_______|
+                                                           
+        */
+        @include tablet {
+            @include Desktop(none);
+
+            .section__able__for__tablet__mobil__modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, .5);
+                overflow-y: scroll;
+                z-index: 10;
+
+                .tablet__mobil__modal {
+                    width: 80%;
+                    height: auto;
+                    background-color: map-get($map: $main-color, $key: backgroundColor);
+                    overflow: hidden;
+
+                    .section__first {
+                        line-height: 60px;
+                        margin-bottom: 20px;
+                        @include iconAndTest;
+                    }
+
+                    .bar__separation__hr {
+                        width: 100%;
+                        height: 1px;
+                        background-color: #ccc;
+                        margin-left: 30px;
+                    }
+
+                    .mobil__tablet__section__ {
+                        ul {
+                            display: grid;
+                            grid-template-rows: repeat(4, 60px);
+
+                            li {
+                                margin: 25px 30px;
+                                list-style: none;
+
+                                a {
+                                    text-decoration: none;
+                                    color: black;
+
+                                    &:hover {
+                                        color: map-get($map: $main-color, $key: Primary);
+                                        transition: color 250ms ease-in-out;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
-    .If__desktop{
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      width: 100%;
-      line-height: 60px;
-      .section__first{
-          display: flex;
-          margin-left: 30px;
-          img{
-              width: 32px;
-              height: 32px;
-              margin-top: 15px;
-              margin-right: 10px;
-              font-size: map-get($desktop-h1, fontSize);
-          }
+    .If__desktop {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+        line-height: 60px;
+        @include mobil{
+            &{
+                height: 55px;
+            }
+        }
+        @include mobil{
+            &{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                line-height: 50px;
+            }
+        }
 
-          h2{
-              font-size: map-get($header2, fontSize);
-              font-weight: map-get($header2, fontWeight);
-              text-transform: uppercase;
-          }
-      }
+        .section__first {
+            @include iconAndTest;
+            @include mobil{
+                img{
+                    margin-top: 10px;
+                }
+            }
 
-      .section__second{
-             @include ListPropriety;
-              .hide__element__with__position__5{
-                  display: none;
-              }
+        }
 
-          }
+        .section__second {
+            @include ListPropriety(true);
+
+            .hde__element__with__position__5 {
+                display: none;
+            }
+
+            @include tablet {
+                @include ListPropriety(false);
+
+                .hde__element__with__position__5 {
+                    display: block;
+                    float: right;
+                    margin: 10px 20px;
+                    cursor: pointer;
+
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+
+                }
+            }
+
+
+        }
 
     }
 

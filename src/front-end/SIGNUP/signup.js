@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../SCSS/__signup.scss'
+//import Modal from '../MODAL/modal';
 
 const Signup = () => {
     return (

@@ -1,34 +1,57 @@
 @import './variables';
 
-@mixin tablet {
-    @media (max-width: $desktop) {
-        @content;
-    }
-}
 
 @mixin Desktop($displayValue) {
     display: $displayValue;
+    position: relative;
 }
 
 
-@mixin ListPropriety {
-    ul{
-        display: flex;
-        justify-content: space-around;
-
-        li{
-            list-style: none;
-
-            a{
-                text-decoration: none;
-                color: black;
-                &:hover{
-                    color: map-get($map: $main-color, $key: Primary);
-                    transition: color 250ms ease-in-out;
+@mixin ListPropriety($value) {
+    @if $value {
+        ul{
+            display: flex;
+            justify-content: space-around;
+    
+            li{
+                list-style: none;
+    
+                a{
+                    text-decoration: none;
+                    color: black;
+                    &:hover{
+                        color: map-get($map: $main-color, $key: Primary);
+                        transition: color 250ms ease-in-out;
+                    }
                 }
             }
         }
+    } @else {
+        ul{
+            justify-content: start;
+            li{
+                display: none;
+            }
+        }
     }
+}
+
+@mixin iconAndTest {
+    display: flex;
+          margin-left: 30px;
+          img{
+              width: 32px;
+              height: 32px;
+              margin-top: 15px;
+              margin-right: 10px;
+              font-size: map-get($desktop-h1, fontSize);
+          }
+
+          h2{
+              font-size: map-get($header2, fontSize);
+              font-weight: map-get($header2, fontWeight);
+              text-transform: uppercase;
+          }
 }
 
 @mixin paragraph {
@@ -44,6 +67,18 @@
     line-height: map-get($map: $desktop-h1, $key:lineHeight);
     color: map-get($map: $main-color, $key: backgroundColor);
 }
+
+@mixin  header1Tablet {
+    font-size: map-get($map: $tablet-h1, $key:fontSize);
+    font-weight: map-get($map: $tablet-h1, $key: fontWeight);
+}
+
+@mixin header1Mobil {
+    font-size: map-get($map: $mobil-h1, $key:fontSize);
+    font-weight: map-get($map: $mobil-h1, $key: fontWeight);
+}
+
+
 
 @mixin  header2 {
     font-size: map-get($map: $header2, $key:fontSize);
@@ -79,4 +114,48 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 15px;
+}
+
+
+/*
+   *****************      ************      ***********             *               ***********    ****************
+          *              *            *     *          *            *               *                      *
+          *              *            *     *          *            *               *                      *
+          *              *            *     *          *            *               *                      *
+          *              **************     * ****************      *               ***********            *
+          *              *            *     *                  *    *               *                      *
+          *              *            *     *                  *    *               *                      *
+          *              *            *     *                  *    *               *                      *
+          *              *            *     * *****************     *************   ************           *
+*/
+
+
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+/*
+
+        *                 *    *************
+        *  *           *  *    *           *
+        *    *       *    *    *           *
+        *      *   *      *    *           *
+        *        *        *    *           *
+        *                 *    *           *
+        *                 *    *           *
+        *                 *    *************
+
+
+
+
+
+*/
+
+@mixin  mobil {
+    @media (max-width: $mobil) {
+        @content;
+    }
 }
