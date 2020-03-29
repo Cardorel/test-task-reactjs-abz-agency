@@ -1,19 +1,34 @@
-import {GET_USERS} from '../Types/types'
+import {GET_USERS , FETCH_ERROR , FETCH_REQUEST} from '../Types/types'
 
 let initialState = {
+    loading: true,
     data :  [],
+    error: ''
 }
 
-export const usersReducers = (state = [] , action) => {
+   const usersReducers = (state = initialState , action) => {
     switch (action.type) {
+        case FETCH_REQUEST:
+            return{
+               ...state,
+               loading: true
+            }
         case GET_USERS:
-            return[
-                ...state,
-                action.payload
-            ]
-    
+            return{
+                loading: true,
+                data: action.payload,
+                error: ''
+            }
+        case FETCH_ERROR:
+            return {
+                loading: false,
+                data: [],
+                error: action.payload
+            }
         default:
             return state;
     }
 
 }
+
+export default usersReducers;

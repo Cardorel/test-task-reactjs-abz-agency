@@ -10,9 +10,8 @@ import * as serviceWorker from './serviceWorker';
 import {CombineReducers} from './backend/REDUX/COMBINE/combineReducer'
 
 const middleware = [thunk];
-const initialstate ={}
 
-const store = createStore(CombineReducers , initialstate , applyMiddleware(...middleware));
+const store = createStore(CombineReducers , applyMiddleware(...middleware));
 
 ReactDOM.render(
   <React.StrictMode>
