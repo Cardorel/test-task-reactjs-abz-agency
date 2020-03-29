@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore , applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import  thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import {CombineReducers} from './backend/REDUX/COMBINE/combineReducer'
+
+const middleware = [thunk];
+const initialstate ={}
+
+const store = createStore(CombineReducers , initialstate , applyMiddleware(...middleware));
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

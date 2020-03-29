@@ -51,8 +51,8 @@ section#Relationship {
             width: 100%;
             height: 285px;
             display: grid;
-            grid-template-columns: 550px 550px;
-            gap: 0 31px;
+            grid-template-columns: 430px 470px;
+            gap: 0 60px;
 
             @include tablet{
                 &{
@@ -82,7 +82,7 @@ section#Relationship {
 
             
             .relationship__requirement__containers {
-                width: 550px;
+                width: 470px;
                 @include tablet{
                     width: 450px;
                 }

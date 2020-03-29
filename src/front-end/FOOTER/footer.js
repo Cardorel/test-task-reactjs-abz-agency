@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <>
            <div className="footer__container">
-             <hr/>
+           <div className="bar__separation__hr"/>
              <p>© abz.agency specially for the test task</p>
            </div>
         </>

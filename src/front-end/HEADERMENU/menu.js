@@ -10,7 +10,7 @@ const Menu = () => {
                 <div className="If__desktop">
                     <div className="section__first">
                         <img src={logo} alt="logoImage" />
-                        <h2>Test task</h2>
+                        <h2>Testtask</h2>
                     </div>
                     <div className="section__second">
                         <ul>
@@ -26,13 +26,13 @@ const Menu = () => {
                     </div>
                 </div>
                 <div className="hide__section__if__desktop">
-                    <div className="section__able__for__tablet__mobil__modal">
+                    <div className="section__for__tablet__mobil__modal">
                         <div className="tablet__mobil__modal">
                             <div className="section__first">
                                 <img src={logo} alt="logoImage" />
-                                <h2>Test task</h2>
+                                <h2>Testtask</h2>
                             </div>
-                            <div className="bar__separation__hr"/>
+                            <div className="bar__separation__hr__for__logoTest"/>
                             <div className="mobil__tablet__section__">
                                 <ul>
                                     <li><a href="#About">About me</a></li>

@@ -18,9 +18,9 @@ header.container-header {
                                                            
         */
         @include tablet {
-            @include Desktop(none);
+            @include Desktop(block);
 
-            .section__able__for__tablet__mobil__modal {
+            .section__for__tablet__mobil__modal {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -30,23 +30,58 @@ header.container-header {
                 overflow-y: scroll;
                 z-index: 10;
 
+            
                 .tablet__mobil__modal {
                     width: 80%;
                     height: auto;
                     background-color: map-get($map: $main-color, $key: backgroundColor);
                     overflow: hidden;
-
+             
                     .section__first {
-                        line-height: 60px;
-                        margin-bottom: 20px;
                         @include iconAndTest;
+                            height: 55px;
+                            margin-left: 30px;
+                            margin-bottom: 0;
+                            h2{
+                              line-height: 50px;
+                              letter-spacing: 5px;
+                            }
+
+                            img{
+                                margin-top: 10px ;
+                            }
+
+                        @include mobil{
+                            height: 55px;
+                            margin-left: 30px;
+                            margin-bottom: 0;
+                            h2{
+                              line-height: 50px;
+                              letter-spacing: 5px;
+                            }
+
+                            img{
+                                margin-top: 10px ;
+                            }
+                        }
+                    }
+
+                    .bar__separation__hr__for__logoTest{
+                        width: 100%;
+                        height: 1px;
+                        background-color: #ccc;
+                        margin-left: 30px;
+
                     }
 
                     .bar__separation__hr {
                         width: 100%;
                         height: 1px;
                         background-color: #ccc;
-                        margin-left: 30px;
+                        margin: 22px 30px;
+                        @include mobil{
+                            margin: 15px 30px;
+                        }
                     }
 
                     .mobil__tablet__section__ {
@@ -55,8 +90,11 @@ header.container-header {
                             grid-template-rows: repeat(4, 60px);
 
                             li {
-                                margin: 25px 30px;
+                                margin: 22px 30px;
                                 list-style: none;
+                                @include mobil{
+                                    margin: 15px 30px;
+                                }
 
                                 a {
                                     text-decoration: none;
@@ -81,11 +119,11 @@ header.container-header {
         grid-template-columns: 1fr 2fr;
         width: 100%;
         line-height: 60px;
-        @include mobil{
-            &{
-                height: 55px;
-            }
+
+        @include tablet{
+            line-height: 50px;
         }
+        
         @include mobil{
             &{
                 display: grid;
@@ -96,7 +134,16 @@ header.container-header {
 
         .section__first {
             @include iconAndTest;
+
+            @include tablet{
+                height: 55px;
+                img{
+                    margin-top: 10px;
+                }
+            }
+
             @include mobil{
+                height: 55px;
                 img{
                     margin-top: 10px;
                 }
@@ -113,19 +160,32 @@ header.container-header {
 
             @include tablet {
                 @include ListPropriety(false);
-
+                height: 55px;
                 .hde__element__with__position__5 {
                     display: block;
                     float: right;
-                    margin: 10px 20px;
+                    margin: 0 20px;
                     cursor: pointer;
 
                     img {
                         width: 35px;
                         height: 35px;
+                        margin-top: 7px;
                     }
 
                 }
+            }
+
+            @include mobil{
+                height: 55px;
+               .hde__element__with__position__5{
+                   margin: 5px 20px 0 20px;
+                img {
+                    width: 27px;
+                    height: 27px;
+                    margin-top: 7px;
+                }
+               }
             }
 
 
