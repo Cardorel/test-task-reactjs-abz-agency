@@ -42,10 +42,6 @@ export const validationform = (
             ErrorMessagePhoneState('The field can\'t be empty and Number should start with code of Ukraine ');
         }
     }
-     console.log(file)
-     console.log('====================================');
-     console.log(typeof file);
-     console.log('====================================');
 
      if(!file.match(/\.(jpe?g)$/))
     {

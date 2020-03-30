@@ -10,29 +10,52 @@ const Signup = () => {
     const [email, emailState] = useState('');
     const [phone, phoneState] = useState('');
     const [file, fileState] = useState('');
-    const [inputRadioFront, inputRadioFrontState] = useState('');
-    const [inputRadioBack, inputRadioBackState] = useState('');
-    const [inputRadioQA, inputRadioQAState] = useState('');
-    const [inputRadioDesigner, inputRadioDesignerState] = useState('');
+    const [inputRadioValuePositionID, inputRadioValuePositionIDState] = useState(null);
+    const [inputRadioValuePosition , inputRadioValuePositionState] = useState('');
     const [checkName , checkNameState] = useState(true);
     const [checkEmail , checkEmailState] = useState(true);
     const [checkPhone , checkPhoneState] = useState(true);
-    //const [checkFile , checkFileState] = useState(true);
     const [ErrorMessageName ,ErrorMessageNameState] = useState('');
     const [ErrorMessageEmail ,ErrorMessageEmailState] = useState('');
     const [ErrorMessagePhone ,ErrorMessagePhoneState] = useState('');
-    const [ErrorMessageFile ,ErrorMessageFileState] = useState('');
     const fileInput = useRef(null)
+ 
+    console.log(name)
+    console.log(email)
+    console.log(phone)
+    console.log(file)
+    console.log(inputRadioValuePosition)
+    console.log(inputRadioValuePositionID)
 
+    const handleOnchangeRadio = (e) => {
 
-    console.log(checkName);
-    
+        switch (e.target.value) {
+            case "Front-end": 
+              return(      
+                  inputRadioValuePositionIDState(1),
+                    inputRadioValuePositionState(e.target.value)    
+              )
+            case "Back-end":
+                return(
+                    inputRadioValuePositionIDState(2),
+                    inputRadioValuePositionState(e.target.value)
+                )
+            case "Designer":
+                return(
+                    inputRadioValuePositionIDState(3),
+                    inputRadioValuePositionState(e.target.value)
+                )
+            case "QA":
+               return(   
+                     inputRadioValuePositionIDState(4),
+                    inputRadioValuePositionState(e.target.value)
+                   )
+            default:
+                break;
+                
+        }
 
-    /* const SelectPhoto = (e) => {
-    
-        fileInput.current.click()
-    } */
-
+    }
      
     const handleChangePhone = (e) => {
         e.target.value = e.target.value.replace(/[^0-9+]/g, '').replace(/(\..*)\./g, '$1');
@@ -68,7 +91,6 @@ const Signup = () => {
              alert("yes it s good");
          }
     } 
-
 
 
     return (
@@ -115,11 +137,11 @@ const Signup = () => {
                                 <label htmlFor="frontend" className="content__position"> Frontend developer
                                 <input
                                         type="radio"
-                                        value={inputRadioFront}
+                                        value="front-end"
                                         defaultChecked
                                         name="position"
                                         id="frontend"
-                                        onChange={(e) => inputRadioFrontState(e.target.value)}
+                                        onChange={handleOnchangeRadio}
                                     />
                                     <span className="check__position__span"></span>
                                 </label>
@@ -127,29 +149,29 @@ const Signup = () => {
                                 <input
                                         type="radio"
                                         name="position"
-                                        value={inputRadioBack}
+                                        value="Back-end"
                                         id="backend"
-                                        onChange={(e) => inputRadioBackState(e.target.value)}
+                                        onChange={handleOnchangeRadio}
                                     />
                                     <span className="check__position__span"></span>
                                 </label>
                                 <label htmlFor="postion__3" className="content__position"> Designer
                                 <input
                                         type="radio"
-                                        value={inputRadioDesigner}
+                                        value="Designer"
                                         name="position"
                                         id="postion__3"
-                                        onChange={(e) => inputRadioDesignerState(e.target.value)}
+                                        onChange={handleOnchangeRadio}
                                     />
                                     <span className="check__position__span"></span>
                                 </label>
                                 <label htmlFor="postion__4" className="content__position"> QA
                                 <input
                                         type="radio"
-                                        value={inputRadioQA}
+                                        value="QA"
                                         name="position"
                                         id="postion__4"
-                                        onChange={(e) => inputRadioQAState(e.target.value)}
+                                        onChange={handleOnchangeRadio}
                                     />
                                     <span className="check__position__span"></span>
                                 </label>
