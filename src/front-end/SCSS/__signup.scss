@@ -146,10 +146,6 @@ section#Signup {
             }
 
             .signup__upload__photo{
-                input:invalid{
-                    border: 1px solid red;
-                    background: red;
-                }
                 @include mobil{
                     width: 330px;
                 }
@@ -174,7 +170,8 @@ section#Signup {
                         border-left: none;
                         border-top-right-radius: 0;
                         border-bottom-right-radius: 0;
-                        outline: none;
+                        cursor: text;
+                        user-select: none;
                     }
 
                     button.click__get__photo__file{

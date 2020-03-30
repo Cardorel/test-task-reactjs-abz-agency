@@ -9,9 +9,7 @@ export const validationform = (
     phone,
     checkPhoneState,
     ErrorMessagePhoneState,
-    file,
-    checkFileState,
-    ErrorMessageFileState,
+    file
 ) => {
     let isValid = true;
     
@@ -27,7 +25,7 @@ export const validationform = (
 
     if(typeof email != "undefined")
     {
-        if(!email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))
+        if(!email.match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/))
         {
             isValid= false;
             checkEmailState(false);
@@ -44,13 +42,16 @@ export const validationform = (
             ErrorMessagePhoneState('The field can\'t be empty and Number should start with code of Ukraine ');
         }
     }
+     console.log(file)
+     console.log('====================================');
+     console.log(typeof file);
+     console.log('====================================');
 
-    if(typeof file != "undefined")
+     if(!file.match(/\.(jpe?g)$/))
     {
         isValid = false;
-        checkFileState(false);
-        ErrorMessageFileState('The field can\'t be empty.Try again');
-    }
+        alert('you can not submit without Photo, please select your photo and try again.');
+    } 
 
     return isValid;
 }

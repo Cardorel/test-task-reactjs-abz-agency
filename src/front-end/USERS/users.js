@@ -6,19 +6,18 @@ import '../SCSS/__users.scss';
 import { fetchUsers } from '../../backend/REDUX/Actions/UsersAction';
 import { setCount } from '../../backend/REDUX/Actions/countAction'
 
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2)
+
 
 const Users = ({ Getusers, setcount, count, fetchUsers }) => {
     const [hover, sethover] = useState({});
     
-    
     useEffect(() => {
         fetchUsers(count.countUser);
-        setCount()
-    }, [count.countUser]);
-
-    
-    console.log();
-    
+        setCount();
+    }, [count.countUser , fetchUsers]);
     
     
 

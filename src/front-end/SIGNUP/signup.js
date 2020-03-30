@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState , useRef} from 'react';
 
 import {validationform} from '../VALIDATIONFORM/validation'
 
@@ -17,27 +17,37 @@ const Signup = () => {
     const [checkName , checkNameState] = useState(true);
     const [checkEmail , checkEmailState] = useState(true);
     const [checkPhone , checkPhoneState] = useState(true);
-    const [checkFile , checkFileState] = useState(true);
+    //const [checkFile , checkFileState] = useState(true);
     const [ErrorMessageName ,ErrorMessageNameState] = useState('');
     const [ErrorMessageEmail ,ErrorMessageEmailState] = useState('');
     const [ErrorMessagePhone ,ErrorMessagePhoneState] = useState('');
     const [ErrorMessageFile ,ErrorMessageFileState] = useState('');
+    const fileInput = useRef(null)
 
 
     console.log(checkName);
     
 
-
-
-    const fileInput = createRef();
-
-    const SelectPhoto = (e) => {
-        e.preventDefault();
+    /* const SelectPhoto = (e) => {
+    
         fileInput.current.click()
+    } */
+
+     
+    const handleChangePhone = (e) => {
+        e.target.value = e.target.value.replace(/[^0-9+]/g, '').replace(/(\..*)\./g, '$1');
+        phoneState(e.target.value);
     }
 
-    console.log(file);
-
+    const handleValidationFileInput = (e) => {
+        let isCorrect = true;
+        fileState(e.target.files[0].name);
+        if(e.target.value === '')
+        {
+            isCorrect = false;
+        }
+        return isCorrect;
+    }
 
      const handleSubmit = (e) => {
          e.preventDefault();
@@ -52,21 +62,16 @@ const Signup = () => {
                 phone,
                 checkPhoneState,
                 ErrorMessagePhoneState,
-                file,
-                checkFileState,
-                ErrorMessageFileState
+                file
             )
          ){
-             if(file === "")
-             alert("please , you can submit without the Photo");
-             alert("it's done!!!!!!!!!!!!!!!");
+             alert("yes it s good");
          }
     } 
 
 
 
     return (
-        <scroll-page>
             <section id="Signup">
                 <form onSubmit={handleSubmit}>
                     <div className="signup__container">
@@ -80,7 +85,6 @@ const Signup = () => {
                                 <input
                                     type="text"
                                     value={name}
-                                    required
                                     name="Name"
                                     placeholder="Your name"
                                     onChange={(e) => { nameState(e.target.value) }}
@@ -90,7 +94,6 @@ const Signup = () => {
                                 <input
                                     type="email"
                                     name="Email"
-                                    required
                                     value={email}
                                     placeholder="Your email"
                                     onChange={(e) => { emailState(e.target.value) }}
@@ -100,11 +103,10 @@ const Signup = () => {
                                 <input
                                     type="text"
                                     value={phone}
-                                    required
                                     name="phone-number"
                                     placeholder="+380 XX XXX XX XX"
-                                    onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '').replace(/(\..*)\./g, '$1')}
-                                    onChange={(e) => phoneState(e.target.value)}
+                                    /*onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9+]/g, '').replace(/(\..*)\./g, '$1'))}*/
+                                    onChange={handleChangePhone}
                                 />
                                 <span className={checkPhone? "" : "invalid__data"}>{checkPhone? "Enter phone number in open format" : ErrorMessagePhone}</span>
                             </div>
@@ -158,13 +160,13 @@ const Signup = () => {
                                     <input
                                         type="file"
                                         name={file}
-                                        accept=".jpg"
+                                        accept=".jpg,.jpeg"
                                         ref={fileInput}
-                                        onChange={(e) => fileState(e.target.files[0].name)}
+                                        onChange={handleValidationFileInput}
                                     />
                                     <div className="container__upload__photo">
                                         <input type="text" value={file} name="filename" disabled placeholder={`Upload your photo`} />
-                                        <button type="button" onClick={SelectPhoto} className="click__get__photo__file">Browse</button>
+                                        <button type="button" onClick={() => fileInput.current.click()} className="click__get__photo__file">Browse</button>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +179,6 @@ const Signup = () => {
                     </div>
                 </form>
             </section>
-        </scroll-page>
     );
 }
 
