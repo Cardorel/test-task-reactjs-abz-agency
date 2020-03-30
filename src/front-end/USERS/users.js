@@ -49,6 +49,7 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
                     {
                         Getusers.data.users &&
                         Getusers.data.users
+                          .sort((a, b) => a.registration_timestamp > b.registration_timestamp)
                             .map((user, index) => (
                                 <div className="__user__content" key={user.id}>
                                     <div className="__user__bloc__all__content">

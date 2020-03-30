@@ -12,6 +12,15 @@ section#Signup {
     }
 
     .signup__container {
+        span.invalid__data{
+            color: red;
+            font-size: 12px;
+            margin-top: 3px;
+            &::before{
+                content: "*";
+                font-weight: 900;
+            }
+        }
         .signup__header__ {
             margin: 161px 0 16px 0;
             text-align: center;
@@ -137,6 +146,10 @@ section#Signup {
             }
 
             .signup__upload__photo{
+                input:invalid{
+                    border: 1px solid red;
+                    background: red;
+                }
                 @include mobil{
                     width: 330px;
                 }
