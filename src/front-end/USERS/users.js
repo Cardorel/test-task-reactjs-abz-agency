@@ -12,8 +12,10 @@ console.log(window.React1 === window.React2)
 
 
 const Users = ({ Getusers, setcount, count, fetchUsers }) => {
+    //state for the hover when the user hover the email and
     const [hover, sethover] = useState({});
     
+    //when the componentDidupdate i want to fetch all users
     useEffect(() => {
         fetchUsers(count.countUser);
         setCount();
@@ -26,10 +28,11 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
                     ***********'...hover ' give the possibility to take all prevent state*******
                         *** [index]: give us the particular key as index is hovered***
     */
+   //Looking for each index when the mousse Enter.Take all state(hover) and put the current index true
     const onMousseEnterHandler = (index) => {
         sethover({ ...hover, [index]: true })
     }
-
+     //Looking for each index when the mousse leave.Take all state(hover) and put the current index false
     const onMousseLeaveHandler = (index) => {
         sethover({ ...hover, [index]: false })
     }
@@ -85,6 +88,8 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
     );
 }
 
+//mapStateToprops => give the posssibility to take our data in the store and put them in the current component like the props
+//Hooks => useSelector();
 const mapStateToProps = state => {
     return {
         Getusers: state.users,
@@ -92,8 +97,7 @@ const mapStateToProps = state => {
     }
 }
 
-
-
+//mapDispatch => dispatch the data in the props; we can use the Hooks too Like useDisptach();
 const mapDispatchToProps = dispatch => {
     return {
         fetchUsers: count => dispatch(fetchUsers(count)),
@@ -103,5 +107,5 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-
+//connect => coonect us to the store;
 export default connect(mapStateToProps, mapDispatchToProps)(Users);
