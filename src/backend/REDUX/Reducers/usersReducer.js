@@ -1,10 +1,9 @@
-import {GET_USERS , FETCH_ERROR , FETCH_REQUEST , POST_USER} from '../Types/types'
+import {GET_USERS , FETCH_ERROR , FETCH_REQUEST} from '../Types/types'
 
 let initialState = {
     loading: true,
     data :  [],
     error: '',
-    user: {}
 }
 
    const usersReducers = (state = initialState , action) => {
@@ -25,11 +24,6 @@ let initialState = {
                 loading: false,
                 data: [],
                 error: action.payload
-            }
-        case POST_USER:
-            return{
-                ...state,
-                user: action.payload
             }
         default:
             return state;

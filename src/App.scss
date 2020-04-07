@@ -1,4 +1,10 @@
 @import './front-end/SCSS/_menu';
 @import './front-end/SCSS/__about';
 @import './front-end/SCSS/__relationship';
-@import './front-end/SCSS/__scrollbar.scss'
+@import './front-end/SCSS/__scrollbar.scss';
+
+
+scroll-container{
+    overflow-y : scroll;
+    scroll-behavior: smooth;
+}

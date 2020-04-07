@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+//import propTypes from 'prop-types' 
 import '../SCSS/__menu.scss'
 import logo from '../../Image/favicon-32x32.png'
 import menuIcon from '../../Image/menu icon.svg'
@@ -7,14 +8,6 @@ const Menu = () => {
 
     //Initialstate help us to hide the modal before to click in btn
     const [modalMenu, modalMenuState] = useState(false);
-
-    //Close Modal 
-    const CloseModaloutSideMenu = (e) => {
-      if(e.target.id == "Close_All_modal")
-      {
-        modalMenuState(false);
-      }
-    }
 
     //Open the modal on click in the img
     const OpenModalMenu = () => {
@@ -46,7 +39,7 @@ const Menu = () => {
                 </div>
                        {/* Hide the modal */}
                 {modalMenu &&
-                    <div className="hide__section__if__desktop" id="Close_All_modal" onClick={(e) => CloseModaloutSideMenu(e)}>
+                    <div className="hide__section__if__desktop" id="Close_All_modal" onClick={() => modalMenuState(false)}>
                         <div className="section__for__tablet__mobil__modal" >
                             <div className="tablet__mobil__modal">
                                 <div className="section__first">
@@ -91,5 +84,10 @@ const Menu = () => {
         </header>
     );
 }
+
+/* Menu.propTypes = {
+    OpenModalMenu: propTypes.func.isRequired,
+    modalMenu: propTypes.bool.isRequired,
+} */
 
 export default Menu;

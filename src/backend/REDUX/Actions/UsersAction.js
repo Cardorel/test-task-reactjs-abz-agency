@@ -1,9 +1,20 @@
-import { GET_USERS} from '../Types/types'
-import {fetchError , fetchRequest} from '../Actions/AnothersActions'
+import { GET_USERS , FETCH_REQUEST ,FETCH_ERROR} from '../Types/types'
 
-export const fetchUsers = (count) => dispatch => {
-    console.log(count);
-    
+ const fetchRequest = () => {
+    return {
+        type: FETCH_REQUEST,
+    }
+}
+
+ const fetchError = error => {
+    return {
+        type: FETCH_ERROR,
+        payload: error
+    }
+}
+
+//I prefered to use for the first time ftect and the second time i used axios
+export const fetchUsers = (count) => dispatch => { 
     dispatch(fetchRequest)
     fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${count}`)
         .then(res => res.json())
@@ -17,3 +28,4 @@ export const fetchUsers = (count) => dispatch => {
         dispatch(fetchError(err))
     })
 }
+

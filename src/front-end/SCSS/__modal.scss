@@ -15,10 +15,10 @@
     justify-content: center;
     align-items: center;
 
-    .bar__separation__hr{
-           width: 100%;
-           height: 1px;
-           background-color: #ccc;
+    .bar__separation__hr {
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
     }
 
     .__modal__content {
@@ -29,44 +29,59 @@
         z-index: 105;
         position: relative;
 
-        .congratulation__and__closeModal__content{
+        .congratulation__and__closeModal__content {
             margin: 16px 12px;
             display: grid;
             grid-template-columns: 350px 13px;
 
-            h2{
+            h2 {
                 @include header2;
             }
 
-            span.close__modal__section{
+            span.close__modal__section {
                 font-size: 15px;
                 font-weight: bolder;
                 cursor: pointer;
                 transition: all 250ms ease-in;
-                
-                &:hover{
+
+                &:hover {
                     color: red;
                     transition: all 250ms ease-in-out;
                 }
             }
         }
 
-        p{
-            margin: 16px 12px;
+        p {
+            &.success__paragraph {
+                margin: 16px 10px;
+            }
+
+            &.fail__paragraph {
+                margin: 16px 0 3px 10px;
+            }
         }
 
-        .btn_container__modal{
+        .MessageError__When__User__Exist {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+            color: red;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .btn_container__modal {
             margin: 16px 12px;
             position: absolute;
             right: 0;
             bottom: 0;
 
-            button.btn__Great__modal{
+            button.btn__Great__modal {
                 @include button;
                 color: map-get($map: $main-color, $key: backgroundColor);
                 width: 80px;
             }
-            
+
         }
     }
 }

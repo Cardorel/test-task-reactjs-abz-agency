@@ -9,14 +9,14 @@ import Footer from './front-end/FOOTER/footer';
 
 function App() {
   return (
-    <div className="App">
+    <scroll-container className="App">
       <Menu/>
       <AboutMe/>
       <Relationships/>
       <Users/>
       <Signup/>
       <Footer/>
-    </div>
+    </scroll-container>
   );
 }
 

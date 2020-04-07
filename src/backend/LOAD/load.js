@@ -1,3 +1,9 @@
+/*   
+                                            HERE IS NOT SO IMPORTANT
+
+*/
+
+
 /*
       It's the first method how i can get my data but i would like to use Redux 
       and have the possibility to keep all my data in the store and take it anywhere

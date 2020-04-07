@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
 import usersReducers from '../Reducers/usersReducer'
 import {countReducer} from '../Reducers/countReducer'
+import {tokenReducer} from '../Reducers/tokenReducer'
+import {newUSerReducer} from '../Reducers/newUserReducer'
 
 
 
@@ -8,6 +10,8 @@ import {countReducer} from '../Reducers/countReducer'
 export const CombineReducers = combineReducers(
    {
        users: usersReducers,
-       count: countReducer
+       count: countReducer,
+       token: tokenReducer,
+       newUser: newUSerReducer
    }
 )
