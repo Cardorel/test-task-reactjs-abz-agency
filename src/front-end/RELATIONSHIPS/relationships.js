@@ -5,7 +5,7 @@ import manLaptop from '../../Image/man-laptop-v1.svg';
 
 export default function Relationships() {
     return (
-        <scroll-page id="Relationships" tabIndex={-1}>
+        <scroll-page id="Relationships">
             <div className="all__Containers__for__relationships">
                 <div className="container__relation__ship">
                     <h1>Let's get acquainted</h1>

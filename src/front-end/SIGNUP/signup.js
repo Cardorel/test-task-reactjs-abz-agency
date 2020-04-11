@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux'
 
@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { validationform } from '../VALIDATIONFORM/validation';
 import '../SCSS/__signup.scss';
 import Modal from "../MODAL/modal";
-import Spinner from '../SPINNER/spinner';
 import { getToken } from '../../backend/REDUX/Actions/tokenAction'
 import userActionSubmitted from '../../backend/REDUX/Actions/newUserAction';
 
@@ -174,7 +173,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                 setIfNameIsNotCorrect(true);
                 setIfEmailIsNotCorrect(true);
                 setIfPhoneIsNotCorrect(true);
-            }, 630);
+            }, 610);
 
         }
 
@@ -189,7 +188,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
 
 
     return (
-        <scroll-page id="SignUp" tabIndex={-1}>
+        <scroll-page id="SignUp">
             <div className="All__containers__for__Signup">
                 <form onSubmit={handleSubmit}>
                     <div className="signup__container">
@@ -317,15 +316,13 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                     </div>
                 </form>
                 <div>
-                    <Suspense fallback={<Spinner />}>
-                        {
-                            HideModal
-                            &&
-                            <Modal
-                                modal={HideModalState}
-                            />
-                        }
-                    </Suspense>
+                    {
+                        HideModal
+                        &&
+                        <Modal
+                            modal={HideModalState}
+                        />
+                    }
                 </div>
             </div>
         </scroll-page>

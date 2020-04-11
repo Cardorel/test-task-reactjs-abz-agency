@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 //import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -6,17 +6,22 @@ import { connect } from 'react-redux';
 import '../SCSS/__users.scss';
 import { fetchUsers } from '../../backend/REDUX/Actions/UsersAction';
 import { setCount } from '../../backend/REDUX/Actions/countAction'
+import {EmptyProfil} from '../../backend/SUSPENSE/API/fakeProfil'
+import Spinner from '../SPINNER/spinner'
+
 
 
 const Users = ({ Getusers, setcount, count, fetchUsers }) => {
     //state for the hover when the user hover the email and
     const [hover, sethover] = useState({});
     //when the componentDidupdate i want to fetch all users
-    useEffect(() => {
-        fetchUsers(count.countUser);
-    }, [count.countUser, fetchUsers]);
+     useEffect(() => {
+        setTimeout(() => {
+            fetchUsers(count.countUser);
+        }, 1000);
+    }, [count.countUser, fetchUsers]); 
 
-
+   
 
     /*
          *********************it's on of the method to hover something*******************************
@@ -34,13 +39,15 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
     /*****************************************((((())))****************************************/
 
     return (
-        <scroll-page id="Users" tabIndex={-1}>
+        <scroll-page id="Users">
             <div className="All__containers__for__users">
                 <div className="users__container">
                     <div className="__bloc__header__message__users">
                         <h1>Our cheerful users</h1>
                         <p className="warning__message">Attention! Sorting users by registration date</p>
                     </div>
+                    <Suspense fallback={<Spinner/>}>
+                        <EmptyProfil/>
                     <div className="all__users__container">
                         {
                             Getusers.data.users &&
@@ -69,6 +76,7 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
                                 ))
                         }
                     </div>
+                    </Suspense>
                     <div className="btn__sign__up__users">
                         <button
                             onClick={setcount}

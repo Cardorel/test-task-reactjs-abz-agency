@@ -109,6 +109,8 @@ div.All__containers__for__users {
                     h2 {
                         margin: 20px 0 21px 0;
                         @include header2;
+                        word-break: break-all;
+                        
                     }
 
                     p.__user_position {
@@ -148,6 +150,7 @@ div.All__containers__for__users {
             display: table;
             z-index: 10;
             box-shadow: 0 2px 15px rgba(0, 0, 0, .4);
+            word-break: break-all;
         }
     }
 }
