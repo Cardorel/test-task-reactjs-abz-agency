@@ -5,7 +5,7 @@ import '../SCSS/__about.scss';
 export default function AboutMe() {
     return (
         <scroll-page id="About">
-            <section id="About">
+            <div className="All__containers__for__aboutMe">
                 <div className="container__about__me">
                     <h1>Test assignment for frontend developper position</h1>
                     <p>
@@ -13,11 +13,11 @@ export default function AboutMe() {
                     </p>
                     <div className="btn__signup__in__section__aboutMe">
                         <button className="__btn__sign__up">
-                            <a href="#SignUp">Sign up now</a>
+                            <a href="#SignUp" role="button" aria-pressed={false} >Sign up now</a>
                         </button>
                     </div>
                 </div>
-            </section>
+            </div>
         </scroll-page>
     )
 }

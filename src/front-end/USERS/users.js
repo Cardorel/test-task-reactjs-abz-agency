@@ -34,8 +34,8 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
     /*****************************************((((())))****************************************/
 
     return (
-        <scroll-page id="Users">
-            <section id="Users">
+        <scroll-page id="Users" tabIndex={-1}>
+            <div className="All__containers__for__users">
                 <div className="users__container">
                     <div className="__bloc__header__message__users">
                         <h1>Our cheerful users</h1>
@@ -78,7 +78,7 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
                         </button>
                     </div>
                 </div>
-            </section>
+            </div>
         </scroll-page>
     );
 }

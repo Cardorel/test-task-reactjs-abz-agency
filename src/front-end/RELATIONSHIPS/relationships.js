@@ -5,7 +5,7 @@ import manLaptop from '../../Image/man-laptop-v1.svg';
 
 export default function Relationships() {
     return (
-        <scroll-page id="Relationships">
+        <scroll-page id="Relationships" tabIndex={-1}>
             <div className="all__Containers__for__relationships">
                 <div className="container__relation__ship">
                     <h1>Let's get acquainted</h1>
@@ -24,7 +24,7 @@ export default function Relationships() {
                             </p>
                             </div>
                             <button className="btn__Without__background__color">
-                                <a href="#SignUp">Sign up now</a>
+                                <a href="#SignUp" role="button" aria-pressed={false}>Sign up now</a>
                             </button>
                         </div>
                     </div>

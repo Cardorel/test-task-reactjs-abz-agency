@@ -3,18 +3,18 @@
 
 
 
-section#About {
+div.All__containers__for__aboutMe {
     width: 100%;
     height: 600px;
     background-image: url('../../Image/banner-photo.jpg');
     background-size: cover;
     z-index: -1;
 
-    @include mobil{
-        &{
+    @include mobil {
+        & {
             width: 100%;
             height: 400px;
-           background-size: cover;
+            background-size: cover;
         }
     }
 
@@ -25,8 +25,8 @@ section#About {
         padding-top: 116px;
         margin-left: 31px;
 
-        @include mobil{
-            &{
+        @include mobil {
+            & {
                 width: 100%;
                 margin: 0 5px;
                 padding-top: 90px
@@ -44,9 +44,9 @@ section#About {
                 margin-left: 3px;
             }
 
-            @-moz-document url-prefix(){
-                &::first-letter{
-                 margin-left: 4px;
+            @-moz-document url-prefix() {
+                &::first-letter {
+                    margin-left: 4px;
                 }
             }
 
@@ -54,29 +54,32 @@ section#About {
                 width: 440px;
                 @include header1Tablet;
                 line-height: map-get($map: $tablet-h1, $key:lineHeight);
+
                 &::first-letter {
                     margin-left: 4px;
                 }
 
-                @-moz-document url-prefix(){
-                    &::first-letter{
-                     margin-left: 5px;
+                @-moz-document url-prefix() {
+                    &::first-letter {
+                        margin-left: 5px;
                     }
                 }
             }
 
-            @include mobil{
+            @include mobil {
                 width: 340px;
                 @include header1Mobil;
                 line-height: map-get($map: $mobil-h1, $key:lineHeight);
                 text-align: center;
                 margin: auto;
+
                 &::first-letter {
                     margin-left: 13px;
                 }
-                @-moz-document url-prefix(){
-                    &::first-letter{
-                     margin-left: 14px;
+
+                @-moz-document url-prefix() {
+                    &::first-letter {
+                        margin-left: 14px;
                     }
                 }
             }
@@ -87,23 +90,30 @@ section#About {
         p {
             @include paragraph;
             width: 547px;
-            @include mobil{
+
+            span {
+                @include paragraph;
+            }
+
+            @include mobil {
                 width: 100%;
                 text-align: center;
-                span{
+
+                span {
                     display: none;
                 }
             }
         }
 
-        .btn__signup__in__section__aboutMe{
-            @include mobil{
+        .btn__signup__in__section__aboutMe {
+            @include mobil {
                 display: flex;
                 justify-content: center;
             }
-        button {
-            @include button;
+
+            button {
+                @include button;
+            }
         }
-    }
     }
 }

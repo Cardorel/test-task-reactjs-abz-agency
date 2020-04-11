@@ -189,8 +189,8 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
 
 
     return (
-        <scroll-page id="SignUp">
-            <section id="Signup">
+        <scroll-page id="SignUp" tabIndex={-1}>
+            <div className="All__containers__for__Signup">
                 <form onSubmit={handleSubmit}>
                     <div className="signup__container">
                         <div className="signup__header__">
@@ -200,21 +200,23 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                         <div className="signup__all__input__container">
                             <div className="signup__fill__input">
                                 <div className="add__height__">
-                                    <p>Name</p>
+                                    <label htmlFor="name" >Name</label>
                                     <input
                                         type="text"
                                         value={name}
                                         name="Name"
+                                        id="name"
                                         placeholder="Your name"
                                         onChange={(e) => { setName(e.target.value) }}
                                     />
                                     <span className={IfNameIsNotCorrect ? "" : "invalid__data"} >{IfNameIsNotCorrect ? "" : ErrorMessageName}</span>
                                 </div>
                                 <div className="add__height__">
-                                    <p>Email</p>
+                                    <label htmlFor="email" >Email</label>
                                     <input
                                         type="email"
                                         name="Email"
+                                        id="email"
                                         value={email}
                                         placeholder="Your email"
                                         onChange={(e) => { setEmail(e.target.value) }}
@@ -222,11 +224,12 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                     <span className={IfEmailIsNotCorrect ? "" : "invalid__data"}>{IfEmailIsNotCorrect ? "" : ErrorMessageEmail}</span>
                                 </div>
                                 <div className="add__height__">
-                                    <p>Phone number</p>
+                                    <label htmlFor="phone-number" >Phone number</label>
                                     <input
                                         type="text"
                                         value={phone}
                                         name="phone-number"
+                                        id="phone-number"
                                         placeholder="+380 XX XXX XX XX"
                                         onChange={handleChangePhone}
                                     />
@@ -244,7 +247,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         id="frontend"
                                         onChange={handleOnchangeThePosition}
                                     />
-                                    <span className="check__position__span"></span>
+                                    <span tabIndex={0} className="check__position__span"></span>
                                 </label>
                                 <label htmlFor="backend" className="content__position"> Backend developer
                                 <input
@@ -255,7 +258,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         id="backend"
                                         onChange={handleOnchangeThePosition}
                                     />
-                                    <span className="check__position__span"></span>
+                                    <span tabIndex={0} className="check__position__span"></span>
                                 </label>
                                 <label htmlFor="postion__3" className="content__position"> Designer
                                 <input
@@ -266,7 +269,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         id="postion__3"
                                         onChange={handleOnchangeThePosition}
                                     />
-                                    <span className="check__position__span"></span>
+                                    <span tabIndex={0} className="check__position__span"></span>
                                 </label>
                                 <label htmlFor="postion__4" className="content__position"> QA
                                 <input
@@ -277,7 +280,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         id="postion__4"
                                         onChange={handleOnchangeThePosition}
                                     />
-                                    <span className="check__position__span"></span>
+                                    <span tabIndex={0} className="check__position__span"></span>
                                 </label>
                             </div>
                             <div className="signup__upload__photo">
@@ -287,18 +290,27 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         type="file"
                                         name={photo}
                                         accept="image/jpg ,image/jpeg"
+                                        hidden={true}
                                         ref={photoInput}
                                         onChange={handleValidationphoto}
+                                        tabIndex={-1}
                                     />
                                     <div className="container__upload__photo">
-                                        <input type="text" value={getFilename} name="photoname" disabled placeholder={`Upload your photo`} />
-                                        <button type="button" onClick={() => photoInput.current.click()} className="click__get__photo__file">Browse</button>
+                                        <input
+                                            type="text"
+                                            value={getFilename}
+                                            name="photoname"
+                                            disabled
+                                            placeholder={`Upload your photo`}
+                                            tabIndex={-1}
+                                        />
+                                        <button type="button" onClick={() => photoInput.current.click()} className="click__get__photo__file" tabIndex={0}>Browse</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="__send__all__registration_request">
-                            <button className="Btn__apply__for__job">
+                            <button tabIndex={1} className="Btn__apply__for__job">
                                 Sign up now
                             </button>
                         </div>
@@ -315,7 +327,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                         }
                     </Suspense>
                 </div>
-            </section>
+            </div>
         </scroll-page>
     );
 }

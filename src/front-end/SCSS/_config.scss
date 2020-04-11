@@ -102,6 +102,7 @@
         text-decoration: none;
         font-weight: map-get($map: $desktop-h1, $key: fontWeight);
         color: map-get($map: $main-color, $key: backgroundColor);
+        font-size: map-get($map: $paragraph, $key:fontSize);
     }
 
     &:hover {

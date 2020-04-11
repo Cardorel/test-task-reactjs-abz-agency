@@ -1,40 +1,42 @@
 @import './config';
 @import './variables';
 
-section#Signup {
+div.All__containers__for__Signup {
     width: 100%;
     height: 1070px;
     background-color: map-get($map: $main-color, $key: backgroundColor);
-    
 
-    .hide__body__scroll{
+
+    .hide__body__scroll {
         overflow-y: hidden;
     }
 
-    @include mobil{
+    @include mobil {
         width: 100%;
         height: 900px;
     }
 
     .signup__container {
-        span.invalid__data{
+        span.invalid__data {
             color: red;
             font-size: 12px;
             margin-top: 3px;
-            &::before{
+
+            &::before {
                 content: "*";
                 font-weight: 900;
             }
 
-            @include mobil{
+            @include mobil {
                 font-size: 9px;
             }
         }
+
         .signup__header__ {
             margin: 161px 0 16px 0;
             text-align: center;
-            
-            @include mobil{
+
+            @include mobil {
                 margin: 80px 0 16px 0;
             }
 
@@ -42,7 +44,7 @@ section#Signup {
                 @include header1;
                 color: black;
 
-                @include mobil{
+                @include mobil {
                     @include header1Mobil;
                     text-align: center;
                 }
@@ -54,7 +56,7 @@ section#Signup {
                 width: 447px;
                 margin: 34px auto 0 auto;
 
-                @include mobil{
+                @include mobil {
                     margin: 15px auto 0 auto;
                     width: 300px;
                 }
@@ -65,7 +67,7 @@ section#Signup {
             width: 447px;
             margin: auto;
 
-            @include mobil{
+            @include mobil {
                 width: 100%;
                 margin: 0 16px;
             }
@@ -77,31 +79,38 @@ section#Signup {
             }
 
             .signup__fill__input {
-                .add__height__{
-                     height: 70px;
+                .add__height__ {
+                    height: 70px;
+                    margin-top: 22px;
+                    label {
+                        @include paragraph;
+                        color: black;
+                    }
                 }
 
                 input {
                     width: 100%;
                     @include input;
-                    &:focus{
+                    margin-top: 6px;
+
+                    &:focus {
                         border: 1px solid map-get($map: $main-color, $key:Secondary);
                     }
 
-                    @-moz-document url-prefix(){
-                        &:focus{
+                    @-moz-document url-prefix() {
+                        &:focus {
                             border: 1px solid map-get($map: $main-color, $key:Secondary);
                         }
-    
+
                     }
 
-                    @supports (-ms-ime-align: auto){
-                        &:focus{
+                    @supports (-ms-ime-align: auto) {
+                        &:focus {
                             border: 1px solid map-get($map: $main-color, $key:Secondary);
-                        }    
+                        }
                     }
 
-                    @include mobil{
+                    @include mobil {
                         width: 335px;
                     }
                 }
@@ -115,7 +124,8 @@ section#Signup {
 
             .sign__up__select__position {
                 margin-top: 35px;
-                p{
+
+                p {
                     @include paragraph;
                     color: black;
                     margin-bottom: 20px;
@@ -176,26 +186,29 @@ section#Signup {
                 }
             }
 
-            .signup__upload__photo{
-                @include mobil{
+            .signup__upload__photo {
+                @include mobil {
                     width: 330px;
                 }
-                p{
+
+                p {
                     @include paragraph;
                     color: black;
                 }
 
-                input[type = "file"]{
+                input[type="file"] {
                     display: none;
                 }
 
-                .container__upload__photo{
+                .container__upload__photo {
                     width: 447px;
                     display: flex;
-                    @include mobil{
+
+                    @include mobil {
                         width: 100%;
                     }
-                    input[type = "text"]{
+
+                    input[type="text"] {
                         flex: 80%;
                         @include input;
                         border-left: none;
@@ -205,7 +218,7 @@ section#Signup {
                         user-select: none;
                     }
 
-                    button.click__get__photo__file{
+                    button.click__get__photo__file {
                         flex: 20%;
                         @include input;
                         border-bottom-left-radius: 0;
@@ -218,10 +231,11 @@ section#Signup {
             }
         }
 
-        .__send__all__registration_request{
+        .__send__all__registration_request {
             display: flex;
             justify-content: center;
-            button.Btn__apply__for__job{
+
+            button.Btn__apply__for__job {
                 @include button;
                 font-weight: map-get($map: $desktop-h1, $key: fontWeight);
                 color: map-get($map: $main-color, $key: backgroundColor);

@@ -10,12 +10,18 @@ import Footer from './front-end/FOOTER/footer';
 function App() {
   return (
     <scroll-container className="App">
-      <Menu/>
-      <AboutMe/>
-      <Relationships/>
-      <Users/>
-      <Signup/>
-      <Footer/>
+      <main>
+        <Menu />
+      </main>
+      <nav>
+        <AboutMe />
+        <Relationships />
+        <Users />
+        <Signup />
+      </nav>
+      <footer>
+        <Footer />
+      </footer>
     </scroll-container>
   );
 }
