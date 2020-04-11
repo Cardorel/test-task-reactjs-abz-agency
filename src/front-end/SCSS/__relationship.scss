@@ -1,7 +1,7 @@
 @import './variables';
 @import './_config';
 
-section#Relationship {
+div.all__Containers__for__relationships{
     width: 100%;
     height: 724px;
     background-color: map-get($map: $main-color, $key:backgroundColor);
@@ -48,11 +48,27 @@ section#Relationship {
         }
 
         .Acquainted__container__flex {
-            width: 100%;
+            width: 60%;
             height: 285px;
             display: grid;
-            grid-template-columns: 430px 470px;
-            gap: 0 60px;
+            margin: auto;
+            grid-template-columns: 1fr 1fr;
+            
+            .image__svg__container{
+                text-align: center;
+            }
+
+            @include desktop{
+                &{
+                    width: 100%;
+                    height: 285px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    margin: auto;
+                   
+                   
+                }
+            }
 
             @include tablet{
                 &{
@@ -64,7 +80,7 @@ section#Relationship {
                     .image__svg__container{
                         img{
                             width: 245px;
-                            height: 245px;
+                            height: 350px;
                         }
                     }
                 }

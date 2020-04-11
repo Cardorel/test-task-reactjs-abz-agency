@@ -1,8 +1,10 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 //import propTypes from 'prop-types' 
-import '../SCSS/__menu.scss'
-import logo from '../../Image/favicon-32x32.png'
-import menuIcon from '../../Image/menu icon.svg'
+
+import '../SCSS/__menu.scss';
+import logo from '../../Image/favicon-32x32.png';
+import menuIcon from '../../Image/menu icon.svg';
+import logo1 from '../../Image/logo.svg';
 
 const Menu = () => {
 
@@ -21,8 +23,10 @@ const Menu = () => {
             <div className="container-mobile">
                 <div className="If__desktop">
                     <div className="section__first">
-                        <img src={logo} alt="logoImage" />
-                        <h2>Testtask</h2>
+                        <iframe src={logo1} title="My-Image-logo" frameBorder="0">
+                            <img src={logo} alt="logoImage" />
+                            <h2>Testtask</h2>
+                        </iframe>
                     </div>
                     <div className="section__second">
                         <ul>
@@ -37,14 +41,16 @@ const Menu = () => {
                         </div>
                     </div>
                 </div>
-                       {/* Hide the modal */}
+                {/* Hide the modal */}
                 {modalMenu &&
                     <div className="hide__section__if__desktop" id="Close_All_modal" onClick={() => modalMenuState(false)}>
                         <div className="section__for__tablet__mobil__modal" >
                             <div className="tablet__mobil__modal">
                                 <div className="section__first">
-                                    <img src={logo} alt="logoImage" />
-                                    <h2>Testtask</h2>
+                                    <iframe src={logo1} title="My-Image-logo" frameBorder="0">
+                                        <img src={logo} alt="logoImage" />
+                                        <h2>Testtask</h2>
+                                    </iframe>
                                 </div>
                                 <div className="bar__separation__hr__for__logoTest" />
                                 <div className="mobil__tablet__section__">

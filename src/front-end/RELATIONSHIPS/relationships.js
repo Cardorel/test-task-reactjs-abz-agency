@@ -6,7 +6,7 @@ import manLaptop from '../../Image/man-laptop-v1.svg';
 export default function Relationships() {
     return (
         <scroll-page id="Relationships">
-            <section id="Relationship">
+            <div className="all__Containers__for__relationships">
                 <div className="container__relation__ship">
                     <h1>Let's get acquainted</h1>
                     <div className="Acquainted__container__flex">
@@ -29,7 +29,7 @@ export default function Relationships() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </scroll-page>
     )
 }

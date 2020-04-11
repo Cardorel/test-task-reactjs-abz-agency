@@ -84,6 +84,22 @@ section#Signup {
                 input {
                     width: 100%;
                     @include input;
+                    &:focus{
+                        border: 1px solid map-get($map: $main-color, $key:Secondary);
+                    }
+
+                    @-moz-document url-prefix(){
+                        &:focus{
+                            border: 1px solid map-get($map: $main-color, $key:Secondary);
+                        }
+    
+                    }
+
+                    @supports (-ms-ime-align: auto){
+                        &:focus{
+                            border: 1px solid map-get($map: $main-color, $key:Secondary);
+                        }    
+                    }
 
                     @include mobil{
                         width: 335px;
@@ -94,6 +110,7 @@ section#Signup {
             span {
                 font-size: 12px;
                 margin-top: 3px;
+                display: block;
             }
 
             .sign__up__select__position {

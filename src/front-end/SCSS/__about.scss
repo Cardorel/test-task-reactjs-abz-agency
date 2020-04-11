@@ -44,12 +44,24 @@ section#About {
                 margin-left: 3px;
             }
 
+            @-moz-document url-prefix(){
+                &::first-letter{
+                 margin-left: 4px;
+                }
+            }
+
             @include tablet {
                 width: 440px;
                 @include header1Tablet;
                 line-height: map-get($map: $tablet-h1, $key:lineHeight);
                 &::first-letter {
                     margin-left: 4px;
+                }
+
+                @-moz-document url-prefix(){
+                    &::first-letter{
+                     margin-left: 5px;
+                    }
                 }
             }
 
@@ -61,6 +73,11 @@ section#About {
                 margin: auto;
                 &::first-letter {
                     margin-left: 13px;
+                }
+                @-moz-document url-prefix(){
+                    &::first-letter{
+                     margin-left: 14px;
+                    }
                 }
             }
         }

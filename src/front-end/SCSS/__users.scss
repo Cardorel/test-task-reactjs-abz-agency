@@ -26,7 +26,7 @@ section#Users {
             font-weight: map-get($map: $desktop-h1, $key: fontWeight);
             color: map-get($map: $main-color, $key: backgroundColor);
 
-            @include mobil{
+            @include mobil {
                 margin-bottom: 80px;
             }
         }
@@ -34,8 +34,8 @@ section#Users {
 
     .users__container {
         margin: 0 80px;
-        
-        @include tablet{
+
+        @include tablet {
             margin: 0 30px;
         }
 
@@ -56,7 +56,7 @@ section#Users {
                 @include header1;
                 color: black;
 
-                @include tablet{
+                @include tablet {
                     @include header1Tablet;
                 }
 
@@ -91,9 +91,11 @@ section#Users {
 
             .__user__content {
                 height: 300px;
-                @include mobil{
+
+                @include mobil {
                     margin-bottom: 38px;
                 }
+
                 .__user__bloc__all__content {
                     width: 200px;
                     margin: 0 auto;
@@ -112,6 +114,14 @@ section#Users {
                     p.__user_position {
                         line-height: 0;
                         margin: 0 16px;
+                    }
+
+                    @supports (-ms-ime-align: auto) {
+                        p.__user__number__phone {
+                            color: black;
+                            text-decoration: none;
+                            cursor: default;
+                        }
                     }
 
                     p.__user_email__address {

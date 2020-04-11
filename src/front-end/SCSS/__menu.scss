@@ -39,7 +39,10 @@ header.container-header {
              
                     .section__first {
                         @include iconAndTest;
-                            height: 55px;
+                        iframe{
+                            margin-top: 22px;
+                        }
+                            height: 60px;
                             margin-left: 30px;
                             margin-bottom: 0;
                             h2{
@@ -119,6 +122,7 @@ header.container-header {
         grid-template-columns: 1fr 2fr;
         width: 100%;
         line-height: 60px;
+        height: 60px;
 
         @include tablet{
             line-height: 50px;
@@ -129,11 +133,16 @@ header.container-header {
                 display: grid;
                 grid-template-columns: 2fr 1fr;
                 line-height: 50px;
+                width: 100%;
             }
         }
 
         .section__first {
             @include iconAndTest;
+
+            iframe{
+                margin-top: 22px;
+            }
 
             @include tablet{
                 height: 55px;
@@ -143,7 +152,6 @@ header.container-header {
             }
 
             @include mobil{
-                height: 55px;
                 img{
                     margin-top: 10px;
                 }
@@ -160,30 +168,31 @@ header.container-header {
 
             @include tablet {
                 @include ListPropriety(false);
-                height: 55px;
+                height: 60px;
                 .hde__element__with__position__5 {
                     display: block;
                     float: right;
-                    margin: 0 20px;
+                    margin-right: 15px;
                     cursor: pointer;
-
                     img {
                         width: 35px;
                         height: 35px;
-                        margin-top: 7px;
+                        margin-top: 12px;
                     }
 
                 }
             }
 
             @include mobil{
-                height: 55px;
+                height: 60px;
                .hde__element__with__position__5{
-                   margin: 5px 20px 0 20px;
+                height: 60px;
                 img {
-                    width: 27px;
-                    height: 27px;
-                    margin-top: 7px;
+                    width: 28px;
+                    height: 28px;
+                    margin-top: 18px;
+                    
+                   
                 }
                }
             }
