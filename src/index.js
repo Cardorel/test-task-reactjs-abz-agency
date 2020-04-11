@@ -7,7 +7,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { CombineReducers } from './backend/REDUX/COMBINE/combineReducer'
+import { CombineReducers } from './backend/REDUX/COMBINE/combineReducer';
 
 const middleware = [thunk];
 
@@ -21,7 +21,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('test')
 );
 
 // If you want your app to work offline and load faster, you can change
