@@ -217,21 +217,17 @@ div.All__containers__for__Signup {
 
                     @include mobil {
                         width: 100%;
-                    }
-
-                    label {
-                        flex: 80%;
+                    }      
 
                         input[type="text"] {
+                            flex: 80%;
                             @include input;
                             border-left: none;
                             border-top-right-radius: 0;
                             border-bottom-right-radius: 0;
                             cursor: text;
                             user-select: none;
-                            width: 100%;
                         }
-                    }
 
                     button.click__get__photo__file {
                         flex: 20%;

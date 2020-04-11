@@ -295,7 +295,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         tabIndex={-1}
                                     />
                                     <div className="container__upload__photo">
-                                        <label htmlFor="text-file-name">
+                                        <label htmlFor="text-file-name"></label>
                                             <input
                                                 type="text"
                                                 value={getFilename}
@@ -305,7 +305,6 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                                 placeholder={`Upload your photo`}
                                                 tabIndex={-1}
                                             />
-                                        </label>
                                         <button type="button" onClick={() => photoInput.current.click()} className="click__get__photo__file" tabIndex={0}>Browse</button>
                                     </div>
                                 </div>

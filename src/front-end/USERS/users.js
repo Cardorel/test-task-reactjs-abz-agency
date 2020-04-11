@@ -18,7 +18,7 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
      useEffect(() => {
         setTimeout(() => {
             fetchUsers(count.countUser);
-        }, 1000);
+        }, 500);
     }, [count.countUser, fetchUsers]); 
 
    
