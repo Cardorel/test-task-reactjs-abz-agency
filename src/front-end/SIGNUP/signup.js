@@ -295,21 +295,24 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         tabIndex={-1}
                                     />
                                     <div className="container__upload__photo">
-                                        <input
-                                            type="text"
-                                            value={getFilename}
-                                            name="photoname"
-                                            disabled
-                                            placeholder={`Upload your photo`}
-                                            tabIndex={-1}
-                                        />
+                                        <label htmlFor="text-file-name">
+                                            <input
+                                                type="text"
+                                                value={getFilename}
+                                                name="photoname"
+                                                disabled
+                                                id="text-file-name"
+                                                placeholder={`Upload your photo`}
+                                                tabIndex={-1}
+                                            />
+                                        </label>
                                         <button type="button" onClick={() => photoInput.current.click()} className="click__get__photo__file" tabIndex={0}>Browse</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="__send__all__registration_request">
-                            <button tabIndex={1} className="Btn__apply__for__job">
+                            <button tabIndex={0} className="Btn__apply__for__job">
                                 Sign up now
                             </button>
                         </div>
