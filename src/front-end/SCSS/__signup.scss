@@ -82,6 +82,7 @@ div.All__containers__for__Signup {
                 .add__height__ {
                     height: 70px;
                     margin-top: 22px;
+
                     label {
                         @include paragraph;
                         color: black;
@@ -187,6 +188,8 @@ div.All__containers__for__Signup {
             }
 
             .signup__upload__photo {
+                width: 100%;
+
                 @include mobil {
                     width: 330px;
                 }
@@ -201,21 +204,33 @@ div.All__containers__for__Signup {
                 }
 
                 .container__upload__photo {
-                    width: 447px;
                     display: flex;
+                    width: 100%;
+
+                    @mixin desktop {
+                        width: 100%;
+                    }
+
+                    @mixin tablet {
+                        width: 100%;
+                    }
 
                     @include mobil {
                         width: 100%;
                     }
 
-                    input[type="text"] {
+                    label {
                         flex: 80%;
-                        @include input;
-                        border-left: none;
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                        cursor: text;
-                        user-select: none;
+
+                        input[type="text"] {
+                            @include input;
+                            border-left: none;
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                            cursor: text;
+                            user-select: none;
+                            width: 100%;
+                        }
                     }
 
                     button.click__get__photo__file {
