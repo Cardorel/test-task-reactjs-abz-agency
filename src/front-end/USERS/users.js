@@ -20,9 +20,6 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
             fetchUsers(count.countUser);
         }, 500);
     }, [count.countUser, fetchUsers]); 
-
-    console.log(count.countUser);
-    console.log(Getusers.data.total_users);
     
     
 
