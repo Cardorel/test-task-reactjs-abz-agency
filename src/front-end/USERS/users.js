@@ -21,7 +21,10 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
         }, 500);
     }, [count.countUser, fetchUsers]); 
 
-   
+    console.log(count.countUser);
+    console.log(Getusers.data.total_users);
+    
+    
 
     /*
          *********************it's on of the method to hover something*******************************
@@ -79,8 +82,15 @@ const Users = ({ Getusers, setcount, count, fetchUsers }) => {
                     </Suspense>
                     <div className="btn__sign__up__users">
                         <button
+                        className={
+                            Getusers.data.total_users <= count.countUser
+                            ? "btn-disabled" : "btn-actived"
+                        }
+                        disabled={
+                            Getusers.data.total_users <= count.countUser
+                            ? true : false
+                        }
                             onClick={setcount}
-                            className="__btn__sign__up"
                         >
                             Show more
                         </button>

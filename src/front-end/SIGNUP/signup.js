@@ -294,7 +294,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue, positions, funcT
                                     <input
                                         type="file"
                                         name={photo}
-                                        accept="image/jpg ,image/jpeg"
+                                        accept=".jpg ,.jpeg"
                                         hidden={true}
                                         ref={photoInput}
                                         onChange={handleValidationPhoto}

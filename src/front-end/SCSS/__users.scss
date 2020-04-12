@@ -20,14 +20,31 @@ div.All__containers__for__users {
         display: flex;
         justify-content: center;
 
-        button.__btn__sign__up {
-            margin-bottom: 160px;
-            @include button;
-            font-weight: map-get($map: $desktop-h1, $key: fontWeight);
-            color: map-get($map: $main-color, $key: backgroundColor);
+        button {
+            
+            &.btn-disabled{
+                margin-bottom: 160px;
+                @include button;
+                font-weight: map-get($map: $desktop-h1, $key: fontWeight);
+                color: map-get($map: $main-color, $key: backgroundColor);
+                opacity: .4;
+                cursor: not-allowed;
 
-            @include mobil {
-                margin-bottom: 80px;
+                @include mobil {
+                    margin-bottom: 80px;
+                }
+            }
+
+            &.btn-actived{
+                margin-bottom: 160px;
+                @include button;
+                font-weight: map-get($map: $desktop-h1, $key: fontWeight);
+                color: map-get($map: $main-color, $key: backgroundColor);
+                opacity: 1;
+                cursor: pointer;
+                @include mobil {
+                    margin-bottom: 80px;
+                }
             }
         }
     }
@@ -90,10 +107,11 @@ div.All__containers__for__users {
             }
 
             .__user__content {
-                height: 300px;
+                height: 380px;
 
                 @include mobil {
                     margin-bottom: 38px;
+                    height: 290px;
                 }
 
                 .__user__bloc__all__content {
@@ -110,7 +128,7 @@ div.All__containers__for__users {
                         margin: 20px 0 21px 0;
                         @include header2;
                         word-break: break-all;
-                        
+
                     }
 
                     p.__user_position {
