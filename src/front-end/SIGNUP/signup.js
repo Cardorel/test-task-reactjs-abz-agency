@@ -6,11 +6,12 @@ import { connect } from 'react-redux'
 import { validationform } from '../VALIDATIONFORM/validation';
 import '../SCSS/__signup.scss';
 import Modal from "../MODAL/modal";
-import { getToken } from '../../backend/REDUX/Actions/tokenAction'
+import { getToken } from '../../backend/REDUX/Actions/tokenAction';
 import userActionSubmitted from '../../backend/REDUX/Actions/newUserAction';
+import { fetchUserPosition } from '../../backend/REDUX/Actions/usersPositionAction';
 
 
-const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
+const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue, positions, funcTogetUserSPositions }) => {
     //state for the name
     const [name, setName] = useState('');
     //state for the email
@@ -52,6 +53,14 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
         funcTogetToken();
     }, [funcTogetToken])
 
+    useEffect(() => {
+        funcTogetUserSPositions();
+    }, [funcTogetUserSPositions])
+
+
+    /* 
+              THIS FUNCTION HELPED ME TO VALIDATE MY INPUT RADIO AND GET THE GOOD VALUE WHEN THE RESQUEST WILL BE SENT.
+    */
     const handleOnchangeThePosition = (e) => {
 
         //I want to validate my input Radio.I want to be sure onSubmit 
@@ -63,22 +72,22 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
         //Use switch to check every value when the user handle his mousse in any input Radio 
         //OnChange i will have the possibility to know which input has been selected
         switch (e.target.value) {
-            case "Front-end":
+            case "Lawyer":
                 return (
                     setValueOfPositionID(1),
                     setvalueOfPosition(e.target.value)
                 )
-            case "Back-end":
+            case "Content manager":
                 return (
                     setValueOfPositionID(2),
                     setvalueOfPosition(e.target.value)
                 )
-            case "Designer":
+            case "Security":
                 return (
                     setValueOfPositionID(3),
                     setvalueOfPosition(e.target.value)
                 )
-            case "QA":
+            case "Designer":
                 return (
                     setValueOfPositionID(4),
                     setvalueOfPosition(e.target.value)
@@ -90,6 +99,10 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
 
     }
 
+    /* 
+         THIS FUNCTION BLOCK THE USER TO PUT THE INCORRECT THINGS LIKE THE LETTER ;.,* ETC...
+    */
+
     //@here i want that when my user writes his phone number , 
     //want to be very sure he will never tape the any letter there.
     const handleChangePhone = (e) => {
@@ -99,10 +112,14 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
         setPhone(e.target.value);
     }
 
+    /* 
+        THIS FUNCTION HELPS TO VALIDATE THE PHOTO.GOOD FORMAT THE REQUEST WILL BE SENT ELSE THE USER WILL SEE THE ALERT MESSAGE
+     */
+
     //get my url
     let URL = window.URL || window.webkitURL;
 
-    const handleValidationphoto = (e) => {
+    const handleValidationPhoto = (e) => {
         //Get the file property
         let file = e.target.files[0];
         let Img;
@@ -129,6 +146,10 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
             }
         }
     }
+
+    /* 
+    VALIDATION REQUEST.IF USER WILL PUT CORRECT VALUE,IT'LL BE SENT ELSE HE'LL SEE THE ERROR MESSAGE OR ALERT MESSAGE
+    */
 
     const handleSubmit = (e) => {
         //I don t want to see my page update every time when i submitt my request and that i stopped it
@@ -186,6 +207,33 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
         }, 600);
     }
 
+    /*  
+                          GET THE USER POSITION.I PREFERED TO CREATE THE FUNCTION WITH THE IF STATMENT
+    */
+
+    const HandleUsersPostions = () => {
+        if (positions.success) {
+            return (
+                positions.positions
+                &&
+                positions.positions.map(pos => (
+                    <label key={pos.id} htmlFor={pos.name} className="content__position">{pos.name}
+                        <input
+                            type="radio"
+                            value={pos.name}
+                            name="position"
+                            required={checkInputRadioIfNotSelected}
+                            id={pos.name}
+                            onChange={handleOnchangeThePosition}
+                        />
+                        <span tabIndex={0} className="check__position__span"></span>
+                    </label>
+                ))
+            )
+        }
+        return <h3 style={{ textAlign: "center" }}>loading...</h3>
+    }
+
 
     return (
         <scroll-page id="SignUp">
@@ -216,6 +264,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         type="email"
                                         name="Email"
                                         id="email"
+                                        required={false}
                                         value={email}
                                         placeholder="Your email"
                                         onChange={(e) => { setEmail(e.target.value) }}
@@ -237,50 +286,7 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                             </div>
                             <div className="sign__up__select__position">
                                 <p>Select your position</p>
-                                <label htmlFor="frontend" className="content__position"> Frontend developer
-                                <input
-                                        type="radio"
-                                        value="Front-end"
-                                        name="position"
-                                        required={checkInputRadioIfNotSelected}
-                                        id="frontend"
-                                        onChange={handleOnchangeThePosition}
-                                    />
-                                    <span tabIndex={0} className="check__position__span"></span>
-                                </label>
-                                <label htmlFor="backend" className="content__position"> Backend developer
-                                <input
-                                        type="radio"
-                                        name="position"
-                                        value="Back-end"
-                                        required={checkInputRadioIfNotSelected}
-                                        id="backend"
-                                        onChange={handleOnchangeThePosition}
-                                    />
-                                    <span tabIndex={0} className="check__position__span"></span>
-                                </label>
-                                <label htmlFor="postion__3" className="content__position"> Designer
-                                <input
-                                        type="radio"
-                                        required={checkInputRadioIfNotSelected}
-                                        value="Designer"
-                                        name="position"
-                                        id="postion__3"
-                                        onChange={handleOnchangeThePosition}
-                                    />
-                                    <span tabIndex={0} className="check__position__span"></span>
-                                </label>
-                                <label htmlFor="postion__4" className="content__position"> QA
-                                <input
-                                        type="radio"
-                                        value="QA"
-                                        name="position"
-                                        required={checkInputRadioIfNotSelected}
-                                        id="postion__4"
-                                        onChange={handleOnchangeThePosition}
-                                    />
-                                    <span tabIndex={0} className="check__position__span"></span>
-                                </label>
+                                {HandleUsersPostions()}
                             </div>
                             <div className="signup__upload__photo">
                                 <p>Photo</p>
@@ -291,20 +297,20 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
                                         accept="image/jpg ,image/jpeg"
                                         hidden={true}
                                         ref={photoInput}
-                                        onChange={handleValidationphoto}
+                                        onChange={handleValidationPhoto}
                                         tabIndex={-1}
                                     />
                                     <div className="container__upload__photo">
                                         <label htmlFor="text-file-name"></label>
-                                            <input
-                                                type="text"
-                                                value={getFilename}
-                                                name="photoname"
-                                                disabled
-                                                id="text-file-name"
-                                                placeholder={`Upload your photo`}
-                                                tabIndex={-1}
-                                            />
+                                        <input
+                                            type="text"
+                                            value={getFilename}
+                                            name="photoname"
+                                            disabled
+                                            id="text-file-name"
+                                            placeholder={`Upload your photo`}
+                                            tabIndex={-1}
+                                        />
                                         <button type="button" onClick={() => photoInput.current.click()} className="click__get__photo__file" tabIndex={0}>Browse</button>
                                     </div>
                                 </div>
@@ -335,21 +341,23 @@ const Signup = ({ dispatchmyUser, funcTogetToken, myTokenValue }) => {
 
 /* Signup.propTypes = {
    handleOnchangeThePosition: propTypes.func.isRequired,
-   handleValidationphotoInput: propTypes.func.isRequired,
+   handleValidationPhotoInput: propTypes.func.isRequired,
    IfNameIsNotCorrect: propTypes.bool.isRequired,
    photo: propTypes.string.isRequired,
 } */
 
 const mapStateToProps = (state) => {
     return {
-        myTokenValue: state.token
+        myTokenValue: state.token,
+        positions: state.position.usersPositions,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchmyUser: (user, tokenValue) => dispatch(userActionSubmitted(user, tokenValue)),
-        funcTogetToken: () => dispatch(getToken())
+        funcTogetToken: () => dispatch(getToken()),
+        funcTogetUserSPositions: () => dispatch(fetchUserPosition()),
     }
 }
 
