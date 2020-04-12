@@ -6,10 +6,14 @@
 div.All__containers__for__aboutMe {
     width: 100%;
     height: 600px;
-    background-image: url('../../Image/banner-768-photo.jpg');
+    background-image: url('../../Image/banner-1440-photo.jpg');
     background-size: cover;
     z-index: -1;
     position: relative;
+
+    @include desktop{
+        background-image: url('../../Image/banner-768-photo.jpg');
+    }
 
     @include mobil {
         & {
