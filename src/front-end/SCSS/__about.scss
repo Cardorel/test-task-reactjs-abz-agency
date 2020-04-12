@@ -6,7 +6,7 @@
 div.All__containers__for__aboutMe {
     width: 100%;
     height: 600px;
-    background-image: -webkit-image-set( url('../../Image/banner-1440-photo.jpg') 1x , url('../../Image/banner-768-photo.jpg') 2x);
+    background-image: url('../../Image/banner-768-photo.jpg');
     background-size: cover;
     z-index: -1;
     position: relative;
