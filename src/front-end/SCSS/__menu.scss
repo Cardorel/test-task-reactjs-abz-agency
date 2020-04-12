@@ -161,6 +161,7 @@ header.container-header {
 
         .section__second {
             @include ListPropriety(true);
+            position: relative;
 
             .hde__element__with__position__5 {
                 display: none;
@@ -171,9 +172,14 @@ header.container-header {
                 height: 60px;
                 .hde__element__with__position__5 {
                     display: block;
-                    float: right;
-                    margin-right: 15px;
+                    position: absolute;
+                    right: 5%;
                     cursor: pointer;
+
+                    @include mobil{
+                    right: 10%;
+                    margin-right: 15px;
+                    }
                     img {
                         width: 35px;
                         height: 35px;

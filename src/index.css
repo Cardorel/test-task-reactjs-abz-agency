@@ -6,3 +6,9 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
+
+
+@font-face{
+  font-family: 'Open Sans', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+}
