@@ -17,7 +17,7 @@ export const validationform = (
 
     //validation for the name
     if (typeof name != "undefined") {
-        if (!name.match(/^[A-Za-z_-]/)) {
+        if (!name.match(/^[A-Za-zА-Яа-я_-]{2,60}/)) {
             isValid = false;
             setIfNameIsNotCorrect(false);
             setErrorMessageName('The field can not be empty and should contain 2-60 letters. E.g TEST Task');
